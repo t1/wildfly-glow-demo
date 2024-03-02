@@ -1,6 +1,6 @@
 = WildFly Glow Demo
 
-Demos a https://jakarta.ee[Jakarta EE] application providing a JAX-RS and a GraphQL service, and use https://docs.wildfly.org/wildfly-glow/[Glow] to create a custom https://www.wildfly.org[WildFly] runtime.
+Demos a https://jakarta.ee[Jakarta EE] application providing a JAX-RS and a GraphQL service, and use https://docs.wildfly.org/wildfly-glow/[Glow] to create a custom https://www.wildfly.org[WildFly] runtime, using it for integration tests.
 
 == Running
 
