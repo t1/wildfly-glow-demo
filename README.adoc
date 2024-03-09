@@ -38,3 +38,16 @@ A third option is to run the bootable JAR with:
 ----
 java -jar target/server-bootable.jar
 ----
+
+=== Docker
+
+To generate a Docker image, you need the WildFly Glow CLI; it's not yet supported by the maven plugin.
+You can download the latest release from https://github.com/wildfly/wildfly-glow/releases[here], unpack it `${SOMEWHERE}`, and run:
+
+[source,bash]
+----
+$SOMEWHERE/wildfly-glow scan --cloud --provision=DOCKER_IMAGE target/ROOT.war
+
+docker run --rm -it -p 8080:8080 -p 9990:9990 --name widlfly-glow-demo wildfly-glow-image-server-31_0_1_final
+----
+
