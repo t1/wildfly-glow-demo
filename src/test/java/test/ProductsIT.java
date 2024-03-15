@@ -62,7 +62,11 @@ class ProductsIT {
         var response = http(GET("/graphql/schema.graphql"));
 
         then(response.statusCode()).isEqualTo(200);
-        then(response.body()).isEqualTo(Files.readString(Path.of("schema.graphql")));
+        then(noIndent(response.body())).isEqualTo(noIndent(Files.readString(Path.of("schema.graphql"))));
+    }
+
+    private String noIndent(String string) {
+        return string.replaceAll("\n +", "\n");
     }
 
     private static HttpResponse<String> http(HttpRequest.Builder request) throws IOException, InterruptedException {
