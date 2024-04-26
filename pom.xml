@@ -121,6 +121,48 @@
                     </discover-provisioning-info>
                     <debug>true</debug>
                     <bootable-jar>true</bootable-jar>
+                    <image>
+                        <!-- help for these settings is only available in the description of the image tag;
+                         I've copied them in here for convenience -->
+
+                        <!--# (optional) set it to false to skip build the application image (true by default) -->
+                        <!--<build>true</build>-->
+
+                        <!--# (optional) set it to true to (login and) push the application image
+                         to the container registry (false by default). If user and password are not specified,
+                         the image goal will not attempt to login to the container registry prior to pushing the image.
+                         The login to the container registry must then be performed before Maven is run. -->
+                        <!--<push>true</push>-->
+
+                        <!--# (optional) The binary used to perform image commands (build, login, push)
+                        (default is "docker") -->
+                        <!--<docker-binary>docker</docker-binary>-->
+
+                        <!--# (optional) the JDK version used by the application. Allowed values are "11" and "17".
+                        If unspecified, the "latest" tag is used to determine the JDK version used by WildFly runtime image -->
+                        <!--<jdk-version>11</jdk-version>-->
+
+                        <!--# (optional) The group part of the name of the application image -->
+                        <!-- this is `rdohna` for me, which is also my user on github -->
+                        <group>${user.name}</group>
+
+                        <!--# (optional) The name part of the application image. If not set, the value of the artifactId
+                         (in lower case) is used -->
+                        <!--<name>${project.artifactId}</name>-->
+
+                        <!--# (optional) The tag part of the application image (default is "latest") -->
+                        <!--<tag>latest</tag>-->
+
+                        <!--# (optional) The container registry. If set, the registry is added to the application name.
+                        If the image is pushed and the registry is not set, it defaults to "docker.io" to login to the registry -->
+                        <!--<registry>quay.io</registry>-->
+
+                        <!--# (optional) The user name to login to the container registry (if push is enabled). -->
+                        <!--<user>${user.name}</user>-->
+
+                        <!--# (optional) The password login to the container registry (if push is enabled) -->
+                        <!--<password>${my.secret.password}</password>-->
+                    </image>
                 </configuration>
                 <executions>
                     <execution>
@@ -128,6 +170,7 @@
                         <phase>package</phase>
                         <goals>
                             <goal>package</goal>
+                            <goal>image</goal>
                         </goals>
                     </execution>
                     <execution>
