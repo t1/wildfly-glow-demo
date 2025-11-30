@@ -4,7 +4,6 @@ import io.smallrye.graphql.client.typesafe.api.GraphQLClientApi;
 import io.smallrye.graphql.client.typesafe.api.TypesafeGraphQLClientBuilder;
 import lombok.Data;
 import org.eclipse.microprofile.graphql.Query;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -59,7 +58,6 @@ class ProductsIT {
     }
 
     @Test
-    @Disabled
     void shouldHaveUnchangedSchema() throws Exception {
         var response = http(GET("/graphql/schema.graphql"));
 
